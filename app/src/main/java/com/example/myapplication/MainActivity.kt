@@ -23,6 +23,9 @@ import com.example.myapplication.ui.theme.MyApplicationTheme
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +37,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MyApp_OnBoaring()
+                    GreetingsItmes()
                 }
             }
         }
@@ -76,6 +79,17 @@ fun Greetings(
         for(name in names){
             Greeting(name = name)
         }
+    }
+}
+
+@Composable
+fun GreetingsItmes(
+    modifier: Modifier = Modifier,
+    names : List<String> = List(1000){"$it"})
+{
+    LazyColumn(modifier = modifier.padding(vertical = 4.dp)){
+       items(items = names) { name -> Greeting(name = name)
+       }
     }
 }
 
