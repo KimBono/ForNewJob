@@ -11,5 +11,8 @@ class WellnessViewModel : ViewModel(){
     val task: List<WellnessTask>
         get() = _tasks
 
+    fun remove(item : WellnessTask){
+        _tasks.remove(item)
+    }
 
 }
