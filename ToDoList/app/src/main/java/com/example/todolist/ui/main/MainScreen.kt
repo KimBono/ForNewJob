@@ -141,7 +141,10 @@ fun TodoItem(
                 .padding(8.dp)
                 .clickable { onDeleteClick(todo) }
             )
-        Column(modifier = Modifier.weight(1f)) {
+        Column(modifier = Modifier
+            .weight(1f)
+            .clickable { onClick(todo)}
+        ) {
             Text(
                 text = format.format(Date(todo.data)),
                 color = if(todo.isDone) Color.Gray else Color.Black,
