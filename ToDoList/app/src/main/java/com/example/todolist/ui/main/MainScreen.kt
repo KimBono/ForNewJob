@@ -21,6 +21,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
@@ -64,6 +65,9 @@ fun MainScreen(viewModel: MainViewModel){
     Scaffold(
         topBar = {
             TopAppBar(title = {Text("오늘 할일")} )
+        },
+        snackbarHost = {
+            SnackbarHost(snackbarHostState)
         }
     ) {
         Column(modifier = Modifier
@@ -101,7 +105,6 @@ fun MainScreen(viewModel: MainViewModel){
                             },
                             onDeleteClick = {todo ->
                                 viewModel.delete(todo.uid)
-
                                 scope.launch {
                                     val result = snackbarHostState.showSnackbar(
                                         message = "할 일 삭제됨",
