@@ -75,7 +75,7 @@ fun MainScreen(viewModel: MainViewModel){
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(8.dp),
                 value = text,
-                onValueChange = {},
+                onValueChange = {text = it},
                 placeholder = {Text("할일")},
                 maxLines = 1,
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
@@ -173,5 +173,6 @@ fun GMainScreenPreview() {
     ToDoListTheme {
         val viewModel : MainViewModel = viewModel()
         MainScreen(viewModel)
+
     }
 }

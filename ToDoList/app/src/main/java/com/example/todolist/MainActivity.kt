@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.todolist.ui.main.MainScreen
 import com.example.todolist.ui.main.MainViewModel
 import com.example.todolist.ui.theme.ToDoListTheme
 import com.example.todolist.util.TodoAndroidViewModelFactory
@@ -23,6 +24,7 @@ class MainActivity : ComponentActivity() {
             val viewMode : MainViewModel = viewModel(
                 factory = TodoAndroidViewModelFactory(application)
             )
+            MainScreen(viewMode)
         }
     }
 }
