@@ -18,6 +18,15 @@ class MainViewModel(
     val items : State<List<Todo>> = _items
     private var recentlyDeletedTodo : Todo? = null
 
+    init {
+        viewModelScope.launch {
+            todoRepository.observeTodos()
+                .collect { todos ->
+                    _items.value = todos
+                }
+        }
+    }
+
     fun addTodo(text : String){
         viewModelScope.launch {
             todoRepository.addTodo(Todo(title = text))
