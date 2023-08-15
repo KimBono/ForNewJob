@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AddressBook</string>
+    <string name="NoResult">No results were found for your search</string>
+</resources>
