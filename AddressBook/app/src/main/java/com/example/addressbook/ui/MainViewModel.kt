@@ -25,6 +25,8 @@ class MainViewModel(
     private var _items = mutableStateOf(emptyList<AddressItem>())
     val items : State<List<AddressItem>> = _items
 
+    lateinit var _DetailInfo : AddressItem
+
     init {
         viewModelScope.launch {
             addressItemRepository.getItemList().collect{
@@ -61,13 +63,22 @@ class MainViewModel(
         }
     }
 
-    fun getPhoneNum(name : String) : String? {
+    fun searchAddressItem(name : String) : AddressItem? {
         val addressItem = _items.value.find{
                 addressItem -> addressItem.name == name
         }
         if(addressItem != null){
-            return  addressItem.phoneNumber
+            return  addressItem
         }
         return null
     }
+
+    fun setItem(item : AddressItem)  {
+        _DetailInfo= item
+    }
+
+    fun getDetailItemInfo() : AddressItem {
+        return _DetailInfo
+    }
+
 }

@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace 'com.example.addressbook'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.addressbook"
@@ -78,4 +78,6 @@ dependencies {
     kapt("androidx.room:room-compiler:$room_version")
 
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1'
+
+    implementation 'androidx.navigation:navigation-compose:2.7.0'
 }
